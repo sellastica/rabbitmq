@@ -1,5 +1,5 @@
 <?php
-namespace RabbitMQ;
+namespace Sellastica\RabbitMQ;
 
 class Initializer
 {
