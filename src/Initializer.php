@@ -24,8 +24,7 @@ class Initializer
 
 	public function initialize(): void
 	{
-		$settings = $this->settingsAccessor->get();
-		if ($settings->getSetting('rabbitmq.initialized')) {
+		if ($this->isInitialized()) {
 			return;
 		}
 
@@ -46,6 +45,14 @@ class Initializer
 			'read' => '.*',
 		]);
 		//save initialization
-		$settings->saveSettingValue('initialized', 'rabbitmq', 1);
+		$this->settingsAccessor->get()->saveSettingValue('initialized', 'rabbitmq', 1);
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isInitialized(): bool
+	{
+		return (bool)$this->settingsAccessor->get()->getSetting('rabbitmq.initialized');
 	}
 }
