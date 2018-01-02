@@ -1,0 +1,21 @@
+{
+	"name": "sellastica/rabbitmq",
+	"homepage": "https://github.com/sellastica/rabbitmq",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Tomáš Krejčí",
+			"homepage": "http://www.sellastica.com"
+		}
+	],
+	"require": {
+		"php": ">=7.1"
+	},
+	"require-dev": {
+	},
+	"autoload": {
+		"psr-4": {
+			"Sellastica\\RabbitMQ\\": "src/"
+		}
+	}
+}
