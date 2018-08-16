@@ -12,8 +12,6 @@ class RabbitMQ
 	/** @var string */
 	private $password;
 	/** @var string */
-	private $vhost;
-	/** @var string */
 	private $scheme;
 
 
@@ -22,7 +20,6 @@ class RabbitMQ
 	 * @param int $port
 	 * @param string $user
 	 * @param string $password
-	 * @param string $vhost
 	 * @param string $scheme
 	 */
 	public function __construct(
@@ -30,7 +27,6 @@ class RabbitMQ
 		int $port,
 		string $user,
 		string $password,
-		string $vhost,
 		string $scheme = 'http://'
 	)
 	{
@@ -38,7 +34,6 @@ class RabbitMQ
 		$this->port = $port;
 		$this->user = $user;
 		$this->password = $password;
-		$this->vhost = $vhost;
 		$this->scheme = $scheme;
 	}
 
@@ -61,6 +56,16 @@ class RabbitMQ
 	{
 		$url = $this->buildUrl($resource);
 		return $this->request('PUT', $url, $body);
+	}
+
+	/**
+	 * @param string $resource
+	 * @return mixed
+	 */
+	public function delete(string $resource)
+	{
+		$url = $this->buildUrl($resource);
+		return $this->request('DELETE', $url);
 	}
 
 	/**
