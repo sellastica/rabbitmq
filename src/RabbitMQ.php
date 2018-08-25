@@ -60,6 +60,17 @@ class RabbitMQ
 
 	/**
 	 * @param string $resource
+	 * @param array|null $body
+	 * @return mixed
+	 */
+	public function post(string $resource, array $body = null)
+	{
+		$url = $this->buildUrl($resource);
+		return $this->request('POST', $url, $body);
+	}
+
+	/**
+	 * @param string $resource
 	 * @return mixed
 	 */
 	public function delete(string $resource)
